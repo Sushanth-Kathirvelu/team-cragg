@@ -124,32 +124,3 @@ def get_data(path, size, train=True, small=True):
             return X_test
 
 X,y = get_data("https://storage.googleapis.com/uga-dsp/project2", train=True, small=True)
-
-def imageTiller(im):
-    images = list()
-    #im = cv2.resize(im,(find_nearest_power_of_two(im.shape[0]),find_nearest_power_of_two(im.shape[1])))
-    imgheight=im.shape[0]
-    imgwidth=im.shape[1]
-    y1 = 0
-    M = 128
-    N = 128
-    i=0
-    for y in range(0,imgheight,M):
-        for x in range(0, imgwidth, N):
-            y1 = y + M
-            x1 = x + N
-            tiles = im[y:y+M,x:x+N]
-            images.append(tiles)
-            #cv2.rectangle(im, (x, y), (x1, y1), (0, 255, 0))
-            #cv2.imwrite(os.path.join(path , str(str(x) + '_' + str(y)+".png")),tiles)
-            i = i + 1
-    return images
-
-def zero_padding(input_array, final_dimension = [640,640]):
-    input_array_size = input_array.shape
-    if input_array_size[0] != final_dimension[0] or input_array_size[1] != final_dimension[1]:
-        temp = np.zeros((final_dimension[0],final_dimension[1]))
-        temp[:input_array_size[0],:input_array_size[1]] = input_array
-        return temp
-    else:
-        return input_array
