@@ -43,6 +43,8 @@ def get_data(path, size ,train=True, small=True):
         url3 = path+"/data/"+filename+".tar"
         response_0 = requests.get(url3)
         tar = tarfile.open(mode= "r:*", fileobj = BytesIO(response_0.content))
+        url4 = path + "/masks/" + filename+".png"
+        response = requests.get(url4)
         for member in tar.getnames():
             image = np.asarray(bytearray(tar.extractfile(member).read()), dtype="uint8")
             image = cv2.imdecode(image, cv2.IMREAD_GRAYSCALE)
@@ -50,8 +52,6 @@ def get_data(path, size ,train=True, small=True):
             X[i, ..., 0] = image / 255
             if train:
                 # path for masks
-                url4 = path + "/masks/" + filename+".png"
-                response = requests.get(url4)
                 mask = np.asarray(bytearray(response.content), dtype="uint8")
                 mask = cv2.imdecode(mask, cv2.IMREAD_GRAYSCALE)
                 mask = cv2.resize(mask,(size[0],size[1]))
