@@ -62,8 +62,9 @@ def get_data(path, size, train=True, small=True):
     url2 = path + "/test.txt"
     test_text_file_list = requests.get(url2).text
     test_text_file_list = test_text_file_list.split()
-    im_height = 128
-    im_width = 128
+
+    im_height = size[0]
+    im_width = size[1]
     if train:
         X = []
         y = []
@@ -124,3 +125,48 @@ def get_data(path, size, train=True, small=True):
             return X_test
 
 X,y = get_data("https://storage.googleapis.com/uga-dsp/project2", train=True, small=True)
+
+
+for filename in test_text_file_list:
+    url3 = "https://storage.googleapis.com/uga-dsp/project2/data/"+filename+".tar"
+    response = requests.get(url3)
+    tar = tarfile.open(mode= "r:*", fileobj = BytesIO(response.content))
+    for member in tar.getnames():
+        print(member)
+        image = np.asarray(bytearray(tar.extractfile(member).read()))
+        image = cv2.imdecode(image, cv2.IMREAD_GRAYSCALE)
+        og_columns = len(image[0])
+        og_rows = len(image)
+        image = image/255
+        #image = cv2.resize(image,(512,512), interpolation = cv2.INTER_NEAREST)
+        image = image[ ..., np.newaxis]
+        image = image[np.newaxis,...]
+        image = zero_padding(image,final_dimension = [padding_value(128,image.shape[0]),padding_value(128,image.shape[1])])
+        print(image.shape, " image")
+        images = imageTiller(image)
+        masks = list()
+        for im in images:
+            mask = model.predict(im)
+            masks.append(mask)
+            print(mask)
+
+        print(np.unique(mask),"before multiply")
+        mask = mask*255
+        print(np.unique(mask),"before multiply")
+        print(mask.shape)
+        #unique, counts = np.unique(mask, return_counts=True)
+        #print(np.unique(mask))
+        print(np.unique(mask))
+        mask = mask[ ..., 0]
+        mask = mask[0,...]
+        mask[mask == 255] = 255
+        mask[mask < 255] = 0
+        mask = cv2.resize(mask ,(256,256), interpolation = cv2.INTER_NEAREST)
+        print(mask.shape)
+        #unique, counts = np.unique(mask, return_counts=True)
+        #print(dict(zip(unique, counts)))
+        print(np.unique(mask))
+        print(og_columns,og_rows)
+        print("/home/ajpanchmia/output_masks/"+filename+".png")
+        cv2.imwrite("/home/ajpanchmia/output_masks1/"+filename+".png", mask)
+        break
