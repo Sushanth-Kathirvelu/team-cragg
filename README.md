@@ -47,8 +47,14 @@ The following are the regions of interest:
 ## Approach 
 
 ## References
+1. Optical Flow (https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_video/py_lucas_kanade/py_lucas_kanade.html)
+2. MaskRCNN (https://github.com/matterport/Mask_RCNN)
+3. Thiramisu (https://github.com/fastai/courses/blob/master/deeplearning2/tiramisu-keras.ipynb)
 
-## Authors
+## Contibutors
+See the contributors file for details. 
 
+[Contributors](https://github.com/dsp-uga/team-cragg/blob/develop/Contributors.md)
 
 ## License
+This project is licensed under the MIT License- see the [LICENSE.md](https://github.com/dsp-uga/team-cragg/blob/master/LICENSE) file for details
