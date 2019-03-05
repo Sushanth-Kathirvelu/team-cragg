@@ -29,8 +29,6 @@ List of requirements and links to install them:
             conda install keras
     
       
-    
-- [Apache Spark](https://spark.apache.org/downloads.html)
 - [Google Cloud Platform or similar service](https://cloud.google.com/docs/)
 
 ## Data
@@ -45,11 +43,14 @@ The following are the regions of interest:
 • 0 corresponds to background (neither a cell nor cilia)
 
 ## Approach 
+U-Net: This model is the most popular method for segmentation published by Olaf Ronneberger (https://arxiv.org/abs/1505.04597) et al.
+The architecture consists of a contracting path to capture context and a symmetric expanding path that enables precise localization.
 
 ## References
-1. Optical Flow (https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_video/py_lucas_kanade/py_lucas_kanade.html)
-2. MaskRCNN (https://github.com/matterport/Mask_RCNN)
-3. Thiramisu (https://github.com/fastai/courses/blob/master/deeplearning2/tiramisu-keras.ipynb)
+1. Unet (https://arxiv.org/abs/1505.04597)
+2. Optical Flow (https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_video/py_lucas_kanade/py_lucas_kanade.html)
+3. MaskRCNN (https://github.com/matterport/Mask_RCNN)
+4. Thiramisu (https://github.com/fastai/courses/blob/master/deeplearning2/tiramisu-keras.ipynb)
 
 ## Contibutors
 See the contributors file for details. 
