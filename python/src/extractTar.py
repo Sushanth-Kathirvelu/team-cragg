@@ -22,3 +22,17 @@ class extractTar:
 			#extract the contents of the tar file to the given location
 			tar.extractall(path = extractedPath)
 			tar.close()
+			
+	def extractSingleFile(textFilePath,extractedPath):
+		if not os.path.exists(extractedPath):
+			os.mkdir(extractedPath)
+		#Open the text file
+		file = open(textFilePath)
+		#extract a single file from the tar file
+		for hashedData in file:
+			hashedData = hashedData.split("\n")[0]
+			tar = tarfile.open(extractedPath+ "\\" + hashedData + ".tar")
+			images = tar.getnames()[0]
+			finalImg = np.asarray(bytearray(tar.extractfile(images).read()), dtype="uint8")
+			cv2.imwrite(extractedPath + "\\" + hashedData + ".png",finalImg)
+			tar.close()
