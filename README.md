@@ -47,10 +47,12 @@ U-Net: This model is the most popular method for segmentation published by Olaf 
 The architecture consists of a contracting path to capture context and a symmetric expanding path that enables precise localization.
 
 ## References
-1. Unet (https://arxiv.org/abs/1505.04597)
-2. Optical Flow (https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_video/py_lucas_kanade/py_lucas_kanade.html)
-3. MaskRCNN (https://github.com/matterport/Mask_RCNN)
-4. Thiramisu (https://github.com/fastai/courses/blob/master/deeplearning2/tiramisu-keras.ipynb)
+* Unet (https://arxiv.org/abs/1505.04597)
+* Optical Flow (https://opencv-python- tutroals.readthedocs.io/en/latest/py_tutorials/py_video/py_lucas_kanade/py_lucas_kanade.html)
+* MaskRCNN (https://github.com/matterport/Mask_RCNN)
+* Thiramisu (https://github.com/fastai/courses/blob/master/deeplearning2/tiramisu-keras.ipynb)
+* FFT Variance (https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_transforms/py_fourier_transform/py_fourier_transform.html)
+* Grey Scale Variance (https://docs.scipy.org/doc/numpy/reference/generated/numpy.var.html)
 
 ## Contibutors
 See the contributors file for details. 
