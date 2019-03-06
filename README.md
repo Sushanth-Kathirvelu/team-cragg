@@ -45,6 +45,19 @@ The following are the regions of interest:
 ## Approach 
 U-Net: This model is the most popular method for segmentation published by Olaf Ronneberger (https://arxiv.org/abs/1505.04597) et al.
 The architecture consists of a contracting path to capture context and a symmetric expanding path that enables precise localization.
+The provided model is basically a convolutional auto-encoder, but with a twist - it has skip connections from encoder layers to decoder layers that are on the same "level". See picture below (note that image size and numbers of convolutional filters in this tutorial differs from the original U-Net architecture).
+
+This deep neural network is implemented with Keras functional API, which makes it extremely easy to experiment with different interesting architectures.
+
+Inputs
+Resize (256,256)
+Resize (512,512)
+Zero Padding(640,640)
+Zero Padding(640,640),Optical Flow of 2 Images
+Zero Padding(640,640),Optical Flow of Video
+Zero Padding(640,640),Grey Scale Variance
+Zero Padding(640,640),FFT Variance
+Zero Padding(640,640),Mean of Optical Flow and Variance
 
 ## References
 * Unet (https://arxiv.org/abs/1505.04597)
