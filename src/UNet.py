@@ -13,6 +13,11 @@ from keras.layers.normalization import BatchNormalization as bn
 
 from keras.preprocessing.image import *
 
+
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+
+import matplotlib.pyplot as plt
+
 class UNet:
     """
     This model is popular for semantic segmentationself.
