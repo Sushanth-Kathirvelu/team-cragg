@@ -6,10 +6,10 @@ import os
 class Resize:
     def resize(path,size,imagePath, savePath):
         """function to resize the images
-        path -- ath of the train or file
+        path -- path of the train.text or file.text
         size -- tuple for the new image dimensions
-        train -- flag for traning and testing dataset (default = True)
-        small -- flag for subdata set (default = True)"""
+        imagePath -- path for images or masks
+        savePath -- path forsaving the images"""
         if not os.path.exist(savePath):
             os.mkdir(savePath)
         file = open(path)
