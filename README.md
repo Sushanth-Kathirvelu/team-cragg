@@ -58,7 +58,14 @@ Zero Padding(640,640),Optical Flow of Video
 Zero Padding(640,640),Grey Scale Variance
 Zero Padding(640,640),FFT Variance
 Zero Padding(640,640),Mean of Optical Flow and Variance
+## Running
 
+            python main.py
+  This gives two options to the user
+  1) Do Preprocess
+  2) Run unet models
+  On running 2 it gives 8 different unet combinations as above
+  
 ## References
 * Unet (https://arxiv.org/abs/1505.04597)
 * Optical Flow (https://opencv-python- tutroals.readthedocs.io/en/latest/py_tutorials/py_video/py_lucas_kanade/py_lucas_kanade.html)
