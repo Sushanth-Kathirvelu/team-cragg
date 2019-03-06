@@ -42,6 +42,9 @@ The following are the regions of interest:
 • 1 corresponds to a cell
 • 0 corresponds to background (neither a cell nor cilia)
 
+## Example
+![](https://github.com/dsp-uga/team-cragg/blob/master/Image/OriginalVSMAsk.png)
+
 ## Approach 
 U-Net: This model is the most popular method for segmentation published by Olaf Ronneberger (https://arxiv.org/abs/1505.04597) et al.
 The architecture consists of a contracting path to capture context and a symmetric expanding path that enables precise localization.
