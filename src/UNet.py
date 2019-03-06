@@ -191,7 +191,7 @@ class UNet:
 
             return model
 
-    def train(x_train_npy, y_train_npy):
+    def train(input_shape, x_train_npy, y_train_npy):
 
         print("loading data")
         print("loading data done")
