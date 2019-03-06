@@ -1,5 +1,4 @@
 import numpy as np
-import urllib
 import cv2
 import os
 
@@ -14,6 +13,6 @@ class Resize:
             os.mkdir(savePath)
         file = open(path)
         for hashNames in file:
-            img = cv2.imread(imagePath + "\\" + hashNames +".png")
+            img = cv2.imread(imagePath + hashNames +".png")
             img = cv2.resize(img,(size[1],size[0]))
-            cv2.imwrite(save_path+ "\\" + hashNames +".png")
+            cv2.imwrite(save_path + hashNames +".png")
