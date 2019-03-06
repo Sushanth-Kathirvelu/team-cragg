@@ -49,15 +49,17 @@ The provided model is basically a convolutional auto-encoder, but with a twist -
 
 This deep neural network is implemented with Keras functional API, which makes it extremely easy to experiment with different interesting architectures.
 
-Inputs
-Resize (256,256)
-Resize (512,512)
-Zero Padding(640,640)
-Zero Padding(640,640),Optical Flow of 2 Images
-Zero Padding(640,640),Optical Flow of Video
-Zero Padding(640,640),Grey Scale Variance
-Zero Padding(640,640),FFT Variance
-Zero Padding(640,640),Mean of Optical Flow and Variance
+### Inputs
+
+* Resize (256,256)
+* Resize (512,512)
+* Zero Padding(640,640)
+* Zero Padding(640,640),Optical Flow of 2 Images
+* Zero Padding(640,640),Optical Flow of Video
+* Zero Padding(640,640),Grey Scale Variance
+* Zero Padding(640,640),FFT Variance
+* Zero Padding(640,640),Mean of Optical Flow and Variance
+
 ## Running
 
             python main.py
